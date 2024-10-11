@@ -1,12 +1,17 @@
 <template>
   <div class="container">
     <h2> Accueil</h2>
+      <rechercheItem />
   </div>
 </template>
 
 <script>
+import rechercheItem from './rechercheItem.vue';
+
 export default {
-    Name: "AccueilComp"
+  components: { rechercheItem },
+    Name: "AccueilComp",
+    
 };
 
 </script>
