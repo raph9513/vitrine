@@ -1,11 +1,14 @@
 <template>
-    <nav>
+    <nav><h2> La Vitrine</h2>
       <ul>
         <li><router-link to="/">Accueil</router-link></li>
-        <li><router-link to="/services">Services</router-link></li>
         <li><router-link to="/Items">Items</router-link></li>
         <li><router-link to="/cartComp">Panier</router-link></li>
+        <li><router-link to="/serviceComp">Services</router-link></li>
+        <li><router-link to='/avisComp'>Vos avis</router-link></li>
+        
       </ul>
+      
     </nav>
   </template>
   
@@ -43,6 +46,10 @@
   
   a:hover {
     text-decoration: underline;
+    
+  }
+  h2 {
+    color: aliceblue;
   }
   </style>
   
