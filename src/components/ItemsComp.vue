@@ -9,10 +9,10 @@
     
 
     <div class="cart">
-      <div v-if="items.length">
+      <div v-if="items.length" class="grid-container">
         <div v-for="item in items" :key="item.id" class="item">
           <h3>{{ item.title }}</h3>
-          <img :src="'data:image/jpeg;base64,' + item.image" alt="Image" style="max-width: 200px;" />
+          <img :src="'data:image/jpeg;base64,' + item.image" alt="Image" class="imgstyle"/>
           <p class="descrip">{{ item.description }}</p>
           <p class="price">{{ item.price }}<strong> Euros</strong></p>
           
@@ -71,32 +71,57 @@ export default {
 </script>
 
 <style scoped>
-.item {
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .container {
-  display: flex;
-  justify-content: center;
+  padding: 20px;
 }
 
-.cart {
-  display: flex;
-  justify-content: center;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Affiche plusieurs colonnes */
+  gap: 20px; /* Espace entre les items */
 }
 
-/* Style du message de confirmation */
-.confirmation-message {
-  background-color: #dff0d8;
-  color: #3c763d;
-  padding: 10px;
-  margin-bottom: 20px;
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.imgstyle {
+  overflow: hidden; /* Empêche l'image d'aller au-delà de ses limites */
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Animation de la transformation (zoom) */
+}
+a:hover {
+  scale: 1.5;
+}
+
+.imgstyle:hover {
+  overflow: hidden;
+  transform: scale(1.5); /* Applique un zoom de 1.5x au survol */
+  width: 300px;
+  height: 300px;
+}
+
+.price {
+  font-weight: bold;
+  color: #333;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
   border-radius: 5px;
-  border: 1px solid #d6e9c6;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
 </style>
